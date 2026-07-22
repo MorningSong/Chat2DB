@@ -13,6 +13,7 @@ const escapeMarkdownCell = (value: unknown) => {
 
   return String(value)
     .replace(/\r\n|\r|\n/g, '<br>')
+    .replace(/\\/g, '\\\\')
     .replace(/\|/g, '\\|');
 };
 

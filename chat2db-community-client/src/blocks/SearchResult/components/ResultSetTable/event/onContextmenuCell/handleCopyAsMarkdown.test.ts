@@ -38,6 +38,12 @@ assertEqual(
 );
 
 assertEqual(
+  formatSelectionAsMarkdown([[{ row: 1, col: 1, field: 'value', value: 'left\\|right' }]]),
+  ['| value |', '| --- |', '| left\\\\\\|right |'].join('\n'),
+  'preserves a backslash followed by a pipe',
+);
+
+assertEqual(
   formatSelectionAsMarkdown([[{ row: 0, col: 1, field: 'id', value: 'id' }]]),
   null,
   'ignores header-only selections',
